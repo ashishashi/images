@@ -5,14 +5,12 @@
 </head>
 <body>
 {% load static %}
-images
 
-    {% for i in l %}
-    	print (1)
-    	<img src="{% static i %}" alt="My image"/> 
-    {% endfor %}
-
-
+	{% for k in image_list %}
+		<img src="/media/1.jpg" alt="My image"/> 
+		print ({{k}})
+		<br>
+	{% endfor %}
 
 </body>
 </html>

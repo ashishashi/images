@@ -4,12 +4,15 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 
 # Create your views here.
-from PIL import Image
-import glob
-image_list = []
-for filename in glob.glob('static/text_narrate/*'): #assuming gif
-    im=Image.open(filename)
-    image_list.append(im)
 
+import glob
 def index(request):
-    return render(request,"home.html",{'l':image_list})
+	image_list = []
+	for filename in glob.glob('text_narrate/media/*.jpg'): #assuming gif
+	    #im=Image.open(filename)
+	    filename=filename[19:]
+	    image_list.append(filename)
+
+	return render (request,'home.html',{'image_list':image_list})
+	#return render(home.html,{'image_list':filename})
+
